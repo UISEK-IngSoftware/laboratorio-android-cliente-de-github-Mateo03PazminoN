@@ -2,59 +2,74 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".RepoForm">
 
+    <!-- Contenedor principal -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/form_container"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="264dp"
         android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_constraintBaseline_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <!-- NOMBRE DEL REPO: altura minima 48dp para target tactile -->
         <EditText
             android:id="@+id/repo_name_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
             android:hint="@string/repo_name"
-            android:inputType="text" />
+            android:inputType="text"
+            android:layout_marginBottom="16dp" />
 
+        <!-- DESCRIPCIÓN DEL REPO: más alto por multiline (minHeight 72dp) -->
         <EditText
             android:id="@+id/repo_description_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="72dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
             android:hint="@string/repo_description"
             android:inputType="textMultiLine"
+            android:minLines="3"
             android:maxLines="8"
-            android:minLines="3"/>
+            android:layout_marginBottom="24dp" />
+
+        <!-- BOTONES -->
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            >
+            android:gravity="center_vertical">
+
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/cancel"
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/cancel_button"
-                android:layout_weight="0"/>
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="@string/cancel"
+                style="@style/Widget.Material3.Button.OutlinedButton" />
+
+            <Space
+                android:layout_width="12dp"
+                android:layout_height="wrap_content" />
+
             <Button
                 android:id="@+id/save_button"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_weight="1"
-                android:text="@string/save"/>
+                android:text="@string/save" />
 
         </LinearLayout>
-
 
     </LinearLayout>
 

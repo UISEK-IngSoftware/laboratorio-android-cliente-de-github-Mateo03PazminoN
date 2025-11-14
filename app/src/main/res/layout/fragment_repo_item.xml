@@ -1,82 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:layout_margin="12dp"
     android:layout_height="wrap_content"
-    tools:context=".Repoitem">
+    card_view:cardCornerRadius="12dp"
+    card_view:cardElevation="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="16dp">
+
+        <!-- IMAGEN DEL OWNER -->
         <ImageView
             android:id="@+id/repo_owner_imagen"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_launcher_foreground"
-            android:layout_gravity="center"
-            />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/repo_name"
-                    android:padding="8dp"
-                    android:textStyle="bold"
-                    />
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:src="@mipmap/ic_launcher"
+            android:scaleType="centerCrop" />
 
-                <TextView
-                    android:id="@+id/repo_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="8dp"
-                    android:text="@string/text_text" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/repo_description"
-                    android:padding="8dp"
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:id="@+id/repo_description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_text"
-                    android:padding="8dp"
-                    />
-            </LinearLayout><LinearLayout
-            android:layout_width="match_parent"
+        <!-- INFORMACIÓN PRINCIPAL -->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:orientation="vertical">
+
             <TextView
-                android:layout_width="100dp"
+                android:id="@+id/repo_name"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/repo_lang"
-                android:padding="8dp"
+                android:text="Repository Name"
                 android:textStyle="bold"
-                />
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/repo_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descripción del repo"
+                android:textSize="14sp"
+                android:layout_marginTop="4dp" />
+
             <TextView
                 android:id="@+id/repo_lang"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/repo_lang"
+                android:text="Kotlin"
+                android:textSize="14sp"
+                android:textColor="#555"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- BOTONES -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <!-- BOTÓN EDITAR -->
+            <ImageButton
+                android:id="@+id/editButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@android:color/transparent"
                 android:padding="8dp"
-                />
+                android:src="@android:drawable/ic_menu_edit"
+                android:contentDescription="Editar" />
+
+            <!-- BOTÓN ELIMINAR -->
+            <ImageButton
+                android:id="@+id/deleteButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"
+                android:padding="8dp"
+                android:src="@android:drawable/ic_menu_delete"
+                android:contentDescription="Eliminar" />
+
         </LinearLayout>
-        </LinearLayout>
+
     </LinearLayout>
-</FrameLayout>
+
+</androidx.cardview.widget.CardView>
